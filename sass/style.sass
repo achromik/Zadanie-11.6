@@ -6,6 +6,10 @@
         clear: both
         display: table
 
+@mixin marginAndRadius()
+    border-radius: 5px
+    margin: 5px
+
 *
     box-sizing: border-box
 
@@ -21,8 +25,10 @@ body
     background-color: #555555
     text-align: center
     position: relative
-    padding: 10px 0
-    margin-top: 30px
+    padding: 10px 10px
+    margin: 30px
+    border-radius: 5px
+    box-shadow: 2px 2px 10px rgba(0, 0 ,0 , .5)    
     .column-container
         @include clearfix()
 
@@ -34,7 +40,7 @@ body
     float: left    
     background-color: #777777
     border: 1px solid #333
-    margin: 5px
+    @include marginAndRadius()
     position: relative
     small
         color: #333
@@ -42,8 +48,7 @@ body
 
 .card 
     border: 1px solid #454545
-    margin: 5px
-    border-radius: 5px
+    @include marginAndRadius()
     background-color: #616161
     position: relative
     padding-top: 35px
@@ -53,16 +58,15 @@ body
     border: 1px solid #444
     background-color: darkgray
     color: black
-    border-radius: 5px
     min-height: 40px
-    margin: 5px
     text-align: center
+    @include marginAndRadius()
     
 .btn[class*='delete']
     position: absolute
-    top: 2px
-    right: 2px
-    margin-bottom: 5px
+    top: 5px
+    right: 5px
+    
 
 
 ul
