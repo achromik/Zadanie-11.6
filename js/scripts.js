@@ -149,4 +149,35 @@ $(function() {
         }
         return str;
     }
+
+/*****************************************************/
+
+    //default initialization
+
+    // make board
+    var board = new Board('KANBAN Example Board'),
+        $boardContainer = $('.board-container');
+        $boardContainer.append(board.$element);
+
+    // make colums
+    var todoColumn = new Column('To do'),
+        doingColumn = new Column('Doing'),
+        doneColumn = new Column('Done');
+
+    // Add columns to board
+    board.addColumn(todoColumn);
+    board.addColumn(doingColumn);
+    board.addColumn(doneColumn);
+
+    // make new cards
+    var card1 = new Card('New task'),
+        card2 = new Card('Create kanban boards');
+
+    // add cards to columns
+    todoColumn.addCard(card1);
+    doingColumn.addCard(card2);
+
+
+
+
 });
