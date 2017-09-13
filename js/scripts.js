@@ -16,8 +16,10 @@ $(function() {
                 $column = $('<div>').addClass('column'),
                 $columnTitle = $('<h2>').addClass('column-title').text(self.name),
                 $columnCardList = $('<ul>').addClass('column-card-list'),
-                $columnDelete = $('<button>').addClass('column-delete btn-delete').text('x'),
-                $columnAddCard = $('<button>').addClass('add-card').text('Add a card');
+                $columnDelete = $('<button>').addClass('column-delete btn btn-danger').text('x'),
+                $columnAddCard = $('<button>').addClass('add-card btn btn-success').text('Add a card');
+            
+            var $columnForeTitle = $('<small>').text('Column name: ');
             
             $columnDelete.on('click', function() {
                 self.removeColumn();
@@ -30,7 +32,8 @@ $(function() {
             $column.append($columnTitle)
                     .append($columnDelete)
                     .append($columnAddCard)
-                    .append($columnCardList);
+                    .append($columnCardList)
+                    .children('h2').prepend($columnForeTitle);
             
             return $column;
         },
@@ -60,7 +63,7 @@ $(function() {
             var self = this,
                 $card = $('<li>').addClass('card'),
                 $cardDescription = $('<p>').addClass('card-description').text(self.description),
-                $cardDelete = $('<button>').addClass('card-delete btn-delete').text('x');
+                $cardDelete = $('<button>').addClass('card-delete btn btn-danger').text('x');
             
             $cardDelete.on('click', function () {
                 self.removeCard();
@@ -92,8 +95,8 @@ $(function() {
             var self = this,
                 $board = $('<div>').addClass('board'),
                 $boardTitle = $('<h2>').addClass('board-title').text(self.name),
-                $boardAddColumn = $('<button>').addClass('create-column').text('Add column'),
-                $boardDelete = $('<button>').addClass('board-delete btn-delete').text('x'),
+                $boardAddColumn = $('<button>').addClass('btn btn-success create-column').text('Add column'),
+                $boardDelete = $('<button>').addClass('btn btn-danger board-delete').text('x'),
                 $boardColumnContainer = $('<div>').addClass('column-container');
 
             $boardAddColumn.on('click', function () {
@@ -113,7 +116,7 @@ $(function() {
         },
 
         addColumn: function(column) {
-            this.$element.append(column.$element);
+            this.$element.children('.column-container').append(column.$element);
             initSortable();
         },
 
@@ -131,11 +134,11 @@ $(function() {
     }
 
     $('.create-kanban').on('click', function(){
-        var name = prompt('Enter a column name'),
-            $kanbanContainer = $('.kanban'),
+        var name = prompt('Enter a Kanban\'s board name'),
+            $boardContainer = $('.board-container'),
             board = new Board(name);
         // board.addColumn(column);
-        $kanbanContainer.append(board.$element);
+        $boardContainer.append(board.$element);
     });
 
     function randomString() {

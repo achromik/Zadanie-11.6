@@ -1,5 +1,74 @@
+
+@mixin clearfix()
+    &::after,
+    &::before
+        content: ''
+        clear: both
+        display: table
+
+*
+    box-sizing: border-box
+
+body
+    background-color: #303030
+    color: #ddd
+    
+
+.kanban
+    text-align: center
+    
+.board
+    background-color: #555555
+    text-align: center
+    position: relative
+    .column-container
+        @include clearfix()
+
+.board:nth-of-type(even)
+    background-color: #647277
+
+.column
+    width: calc(20% - ( 2 * 5px)
+    float: left    
+    background-color: #777777
+    border: 1px solid #333
+    margin: 5px
+    position: relative
+    small
+        color: #333
+        font-size: 13px
+
+.card 
+    border: 1px solid #454545
+    margin: 5px
+    border-radius: 5px
+    background-color: #616161
+    position: relative
+    padding-top: 35px
+
+
+.card-description
+    border: 1px solid #444
+    background-color: darkgray
+    color: black
+    border-radius: 5px
+    min-height: 40px
+    margin: 5px
+    text-align: center
+    
+.btn[class*='delete']
+    position: absolute
+    top: 2px
+    right: 2px
+    margin-bottom: 5px
+
+
 ul
-    min-height: 20px
+    min-height: 40px
+    list-style: none
+    padding: 0
+    //margin: 5px
 
 .card-placeholder
-    background-color: #424242
+    background-color: #252525
+    min-height: 40px
