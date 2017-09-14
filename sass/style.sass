@@ -14,12 +14,18 @@
     box-sizing: border-box
 
 body
-    background: url('../img/grey_wash_wall.png')
+    //background: url('../img/grey_wash_wall.png')
+    background: url('../img/cork.jpg')
     color: #ddd
     
 
 .kanban
     text-align: center
+    font-weight: 700
+    h1
+        font-weight: 700
+        color: snow
+        text-shadow: 2px 2px 3px darkslategrey
     
 .board
     background-color: #555555
@@ -38,7 +44,7 @@ body
 .column
     width: calc(20% - ( 2 * 5px)
     float: left    
-    background-color: #777777
+    background-color: rgba(177, 174, 174, 0.66)
     border: 1px solid #333
     @include marginAndRadius()
     position: relative
@@ -49,7 +55,7 @@ body
 .card 
     border: 1px solid #454545
     @include marginAndRadius()
-    background-color: #616161
+    background-color: #efdb9a
     position: relative
     padding-top: 35px
 

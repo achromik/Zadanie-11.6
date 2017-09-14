@@ -133,11 +133,11 @@ $(function() {
         }).disableSelection();
     }
 
+    
     $('.create-kanban').on('click', function(){
         var name = prompt('Enter a Kanban\'s board name'),
             $boardContainer = $('.board-container'),
             board = new Board(name);
-        // board.addColumn(column);
         $boardContainer.append(board.$element);
     });
 
