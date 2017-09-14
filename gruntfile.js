@@ -46,7 +46,7 @@ module.exports = function(grunt) {
             dynamic: {
                 files: [{
                     expand: true,
-                    cwd: 'img',
+                    cwd: 'src',
                     src: ['*.{png,jpg,jpeg,gif}'],
                     dest: 'img'
                 }]
@@ -116,7 +116,7 @@ module.exports = function(grunt) {
             },
 
             imagemin: {
-                files: ['img/*.{png,jpg,jpeg,gif}'],
+                files: ['src/*.{png,jpg,jpeg,gif}'],
                 tasks: ['imagemin'],
                 options: {
                     spawn: true,
