@@ -16,7 +16,8 @@ $(function() {
                 $column = $('<div>').addClass('column'),
                 $columnTitle = $('<h2>').addClass('column-title').text(self.name),
                 $columnCardList = $('<ul>').addClass('column-card-list'),
-                $columnDelete = $('<button>').addClass('column-delete btn btn-danger').text('x'),
+                $columnDelete = $('<button>').addClass('column-delete btn btn-danger').append('<i>').addClass('fa fa-times'),
+                //$columnDelete = $('<button>').addClass('column-delete btn btn-danger').text('x'),
                 $columnAddCard = $('<button>').addClass('add-card btn btn-success').text('Add a card');
             
             var $columnForeTitle = $('<small>').text('Column name: ');
@@ -63,7 +64,7 @@ $(function() {
             var self = this,
                 $card = $('<li>').addClass('card'),
                 $cardDescription = $('<p>').addClass('card-description').text(self.description),
-                $cardDelete = $('<button>').addClass('card-delete btn btn-danger').text('x');
+                $cardDelete = $('<button>').addClass('card-delete btn btn-danger').append('<i>').addClass('fa fa-times');
             
             $cardDelete.on('click', function () {
                 self.removeCard();
@@ -96,7 +97,7 @@ $(function() {
                 $board = $('<div>').addClass('board'),
                 $boardTitle = $('<h2>').addClass('board-title').text(self.name),
                 $boardAddColumn = $('<button>').addClass('btn btn-success create-column').text('Add column'),
-                $boardDelete = $('<button>').addClass('btn btn-danger board-delete').text('x'),
+                $boardDelete = $('<button>').addClass('btn btn-danger board-delete').append('<i>').addClass('fa fa-times'),
                 $boardColumnContainer = $('<div>').addClass('column-container');
 
             $boardAddColumn.on('click', function () {
