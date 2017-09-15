@@ -17,8 +17,7 @@ $(function() {
                 $columnTitle = $('<h2>').addClass('column-title').text(self.name),
                 $columnCardList = $('<ul>').addClass('column-card-list'),
                 $columnDelete = $('<button>').addClass('column-delete btn btn-danger').append('<i>').addClass('fa fa-times'),
-                //$columnDelete = $('<button>').addClass('column-delete btn btn-danger').text('x'),
-                $columnAddCard = $('<button>').addClass('add-card btn btn-success').text('Add a card');
+                $columnAddCard = $('<button>').addClass('add-card btn btn-success').text('Add card');
             
             var $columnForeTitle = $('<small>').text('Column name: ');
             
@@ -27,7 +26,7 @@ $(function() {
             });
 
             $columnAddCard.on('click', function() {
-                self.addCard(new Card(prompt('Enter the name of card')));
+                self.addCard(new Card(getName('card')));
             });
             
             $column.append($columnTitle)
@@ -101,7 +100,7 @@ $(function() {
                 $boardColumnContainer = $('<div>').addClass('column-container');
 
             $boardAddColumn.on('click', function () {
-                self.addColumn(new Column(prompt('Enter a column name')));
+                self.addColumn(new Column(getName('column')));
             });
 
             $boardDelete.on('click', function () {
@@ -136,11 +135,21 @@ $(function() {
 
     
     $('.create-kanban').on('click', function(){
-        var name = prompt('Enter a Kanban\'s board name'),
-            $boardContainer = $('.board-container'),
-            board = new Board(name);
+        var $boardContainer = $('.board-container'),
+            boardName = getName('Kanban board'),
+            board = new Board(boardName);
+
         $boardContainer.append(board.$element);
     });
+
+    function getName(elementsName) {
+        var name = prompt('Enter a ' + elementsName + '\'s name');
+        while (name.isEmpty()) {
+            name = prompt('Please, enter not blank a ' + elementsName + '\'s name');
+       }
+
+       return name;
+    }
 
     function randomString() {
         var chars = '01234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM',
@@ -150,6 +159,11 @@ $(function() {
         }
         return str;
     }
+
+    //checking if string is blank or contians only white-spaces
+    String.prototype.isEmpty = function() {
+        return (this.length === 0 || !this.trim());
+    };
 
 /*****************************************************/
 
