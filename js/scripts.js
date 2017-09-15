@@ -128,8 +128,12 @@ $(function() {
 
     function initSortable() {
         $('.column-card-list').sortable({
+            start: function (event, ui) {
+                ui.placeholder.height(ui.helper.outerHeight());
+            },
             connectWith: '.column-card-list',
-            placeholder: 'card-placeholder'
+            placeholder: 'card-placeholder',
+            forcePlaceholderSize: true
         }).disableSelection();
     }
 
